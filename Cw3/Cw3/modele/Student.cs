@@ -8,7 +8,7 @@ namespace Cw3.modele
     public class Student
     {
         public int IdStudent { get; set; }
-        public string FirsName { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string IndexNumber { get; set; } 
     }
