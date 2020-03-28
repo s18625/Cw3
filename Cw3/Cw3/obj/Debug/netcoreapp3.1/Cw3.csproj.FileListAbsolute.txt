@@ -267,10 +267,16 @@ C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.Co
 C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\Cw3.csprojAssemblyReference.cache
 C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\staticwebassets\Cw3.StaticWebAssets.Manifest.cache
 C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\staticwebassets\Cw3.StaticWebAssets.xml
-C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\Cw3.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\Cw3.AssemblyInfoInputs.cache
 C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\Cw3.AssemblyInfo.cs
 C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\Cw3.RazorTargetAssemblyInfo.cache
 C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\Cw3.csproj.CopyComplete
 C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\Cw3.dll
 C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\Cw3.pdb
+C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Stefan\Desktop\Cw3\Cw3\Cw3\obj\Debug\netcoreapp3.1\Cw3.MvcApplicationPartsAssemblyInfo.cache

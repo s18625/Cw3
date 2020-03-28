@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Cw3.DAL;
@@ -21,27 +22,71 @@ namespace Cw3.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetStudents(string orderBy)
+        public IActionResult GetStudents()
         {
             //var v = HttpContext.Request.Query;
             //return $"Kowalski, Malewski, Andrzejewski sortowanie={orderBy}";
-            return Ok(_dbService.GetStudents());
+
+            var list = new List<Student>();
+            string id = "Jan";
+            String conStr = "Data Source=db-mssql;Initial Catalog=s18625;Integrated Security=True";
+            using (SqlConnection con = new SqlConnection(conStr))
+            using (SqlCommand com = new SqlCommand())
+            {
+                com.Connection = con;
+                //com.CommandText = "Drop Table Student";
+                com.CommandText = "Select * from Student where FirstName=@id";
+                com.Parameters.AddWithValue("id",id);
+
+                con.Open();
+                var dataReader = com.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    var st = new Student();
+                    st.IndexNumber = dataReader["IndexNumber"].ToString();
+                    st.FirstName = dataReader["FirstName"].ToString();
+                    st.LastName = dataReader["LastName"].ToString();
+                    list.Add(st);
+                }
+
+
+            }
+
+
+                //return Ok(_dbService.GetStudents());
+                return Ok(list);
         }
         [HttpGet("{id}")]
-        public IActionResult GetStudent(int id)
+        public IActionResult GetStudent(String id)
+
         {
-            if(id == 1)
+            var list = new List<Enrollment>();
+            String conStr = "Data Source=db-mssql;Initial Catalog=s18625;Integrated Security=True";
+            using (SqlConnection con = new SqlConnection(conStr))
+            using (SqlCommand com = new SqlCommand())
             {
-                return Ok("JAN");
-            }else if(id == 2)
-            {
-                return Ok("anna");
+                com.Connection = con;
+                com.CommandText = "Select * from enrollment e inner join student s on e.IdEnrollment =s.IdEnrollment   where s.indexNumber ="+id;
+
+                con.Open();
+                var dataReader = com.ExecuteReader();
+                while (dataReader.Read())
+                {
+
+                    Enrollment st = new Enrollment();
+                    st.IdEnrollment = Int32.Parse(dataReader["IdEnrollment"].ToString());
+                    st.Semester = Int32.Parse(dataReader["semester"].ToString());
+                    st.IdStudy = Int32.Parse(dataReader["idstudy"].ToString());
+                    st.StartDate = dataReader["StartDate"].ToString();
+                    list.Add(st);
+                }
+              
+
+
             }
-            else
-            {
-                return NotFound("not found");
-            }
-           
+            return Ok(list);
+
+
         }
         [HttpPost]
         public IActionResult CreateStudent(Student student)
@@ -52,7 +97,7 @@ namespace Cw3.Controllers
         [HttpPut("{id}")]
         public IActionResult PutStudent(int id)
         {
-            return Ok("aktualizacja ukonczona");
+            return Ok("aktualizacja ukonczona "+id);
         }
         [HttpDelete("{id}")]
         public IActionResult DeleteStudent(int id)
