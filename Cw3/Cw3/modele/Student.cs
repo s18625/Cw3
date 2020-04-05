@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 
 namespace Cw3.modele
 {
-    public class Student
+    public class EnrollStudenRequest
     {
-        public int IdStudent { get; set; }
+        //public int IdStudent { get; set; }
+        public string IndexNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string IndexNumber { get; set; } 
+        public DateTime Birthdate  { get; set; }
+        public string Studies { get; set; }
     }
    
 }

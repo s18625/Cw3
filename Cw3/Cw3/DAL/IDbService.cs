@@ -8,6 +8,6 @@ namespace Cw3.DAL
 {
     public interface IDbService
     {
-        public IEnumerable<Student> GetStudents();
+        public IEnumerable<EnrollStudenRequest> GetStudents();
     }
 }

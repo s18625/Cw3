@@ -27,7 +27,7 @@ namespace Cw3.Controllers
             //var v = HttpContext.Request.Query;
             //return $"Kowalski, Malewski, Andrzejewski sortowanie={orderBy}";
 
-            var list = new List<Student>();
+            var list = new List<EnrollStudenRequest>();
             string id = "Jan";
             String conStr = "Data Source=db-mssql;Initial Catalog=s18625;Integrated Security=True";
             using (SqlConnection con = new SqlConnection(conStr))
@@ -42,7 +42,7 @@ namespace Cw3.Controllers
                 var dataReader = com.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    var st = new Student();
+                    var st = new EnrollStudenRequest();
                     st.IndexNumber = dataReader["IndexNumber"].ToString();
                     st.FirstName = dataReader["FirstName"].ToString();
                     st.LastName = dataReader["LastName"].ToString();
@@ -89,7 +89,7 @@ namespace Cw3.Controllers
 
         }
         [HttpPost]
-        public IActionResult CreateStudent(Student student)
+        public IActionResult CreateStudent(EnrollStudenRequest student)
         {
             student.IndexNumber = $"s{new Random().Next(1, 20000)}";
             return Ok(student);

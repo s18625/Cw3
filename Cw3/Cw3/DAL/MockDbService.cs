@@ -8,20 +8,20 @@ namespace Cw3.DAL
 {
     public class MockDbService : IDbService
     {
-        private static IEnumerable<Student> _students;
+        private static IEnumerable<EnrollStudenRequest> _students;
         
         static MockDbService()
         {
-            _students = new List<Student>
+            _students = new List<EnrollStudenRequest>
             {
 
-                new Student{IdStudent = 1,FirstName ="Jan",LastName="Kowalski"},
-                new Student{IdStudent = 2,FirstName ="Anna",LastName="Malewski" },
-                new Student{IdStudent = 1,FirstName ="Andrzej",LastName="Andrzejewicz" }
+                new EnrollStudenRequest{IndexNumber = "1",FirstName ="Jan",LastName="Kowalski"},
+                new EnrollStudenRequest{IndexNumber = "2",FirstName ="Anna",LastName="Malewski" },
+                new EnrollStudenRequest{IndexNumber = "3",FirstName ="Andrzej",LastName="Andrzejewicz" }
 
             };
         }
-        public IEnumerable<Student> GetStudents()
+        public IEnumerable<EnrollStudenRequest> GetStudents()
         {
             return _students;
         }
