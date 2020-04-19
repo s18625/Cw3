@@ -13,7 +13,6 @@ namespace Cw3
     {
         public static void Main(string[] args)
         {
-            //tworzenie aplikacji webowej
             CreateHostBuilder(args).Build().Run();
         }
 
