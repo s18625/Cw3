@@ -19,7 +19,7 @@ namespace Cw3.Middlewares
             _next = next;
         }
 
-        public async Task InvokeAsync(HttpContext httpContext, IDbService service)
+        public async Task InvokeAsync(HttpContext httpContext)
         {
             if (httpContext.Request != null)
             {
@@ -33,8 +33,9 @@ namespace Cw3.Middlewares
                 {
                      bodyStr = await reader.ReadToEndAsync();
                 }
+
+
                 String[] linesToAdd = { path, querystring, metoda, bodyStr };
-                //logowanie do pliku
                 System.IO.File.WriteAllLines("requestLog.txt", linesToAdd);
 
             }
