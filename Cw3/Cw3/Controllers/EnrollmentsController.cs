@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using cw3.Services;
+using Cw3.DTOs.request;
 using Cw3.modele;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,7 +33,7 @@ namespace Cw3.Controllers
         //    using (SqlCommand com = new SqlCommand())
         //    {
         //        com.Connection = con;
-           
+
         //        com.CommandText = "INSERT INTO student VALUES(@IndexNumber ,@FirstName ,@LastName ,convert(datetime,'@Birthdate',4),@Studies)";
         //        com.Parameters.AddWithValue("IndexNumber", enrollStudent.IndexNumber);
         //        com.Parameters.AddWithValue("FirstName", enrollStudent.FirstName);
@@ -43,6 +44,14 @@ namespace Cw3.Controllers
         //    }
         //    return Ok();
         //}
+        [HttpPost("promote")]
+        public IActionResult Promote(PromoteStudentRequest req)
+        {
+
+            var str = _dbservice.PromoteStudent(req);
+            return Ok(str);
+
+        }
 
 
     }

@@ -58,7 +58,10 @@ namespace cw3.Services
             
         }
 
-     
+        public string EnrollStudent(EnrollSudentRequest request)
+        {
+            throw new NotImplementedException();
+        }
 
         public List<Student> GetStudents()
         {
@@ -67,9 +70,42 @@ namespace cw3.Services
             return db.Student.ToList();
         }
 
-        public string PromoteStudent(PromoteStudentRequest preq)
+        public string PromoteStudent(PromoteStudentRequest req)
         {
-            throw new NotImplementedException();
+            var db = new s18625Context();
+
+
+            try
+            {
+                var id = db.Studies.First(s => s.Name == req.Studies).IdStudy;
+                var idE = db.Enrollment.Where(e => e.IdStudy == id)
+                    .Where(e => e.Semester == req.Semester);
+
+
+                if (idE.Count() < 1)
+                    return "error";
+
+
+                
+                foreach (var en in idE)
+                {
+
+                    en.Semester += 1;
+
+                }
+
+
+                db.SaveChanges();
+                return ("Ok");
+
+            }
+            catch (SqlException exc)
+            {
+
+                return "error";
+
+            }
+            
         }
     }
 }
